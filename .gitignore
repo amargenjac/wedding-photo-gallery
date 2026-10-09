@@ -1,0 +1,7 @@
+node_modules/
+bin/
+storage/photos/
+storage/thumbs/
+storage/*.json
+storage/*.png
+storage/*.tmp

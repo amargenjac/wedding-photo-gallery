@@ -1,0 +1,14 @@
+[Unit]
+Description=Edis and Nina wedding album
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/wedding-photos
+Environment=PORT=8787
+Environment=PUBLIC_URL=https://edisandnina.pics
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

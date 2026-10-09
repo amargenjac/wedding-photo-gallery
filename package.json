@@ -1,0 +1,19 @@
+{
+  "name": "wedding-photos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wedding album: store a QR code and collect photos uploaded from phones.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "express": "^4.21.2",
+    "multer": "^2.4.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.4"
+  }
+}

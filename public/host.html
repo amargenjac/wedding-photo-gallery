@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>QR kod · Edis & Nina</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="host">
+  <main class="wrap host-wrap">
+    <section class="qr-sheet" aria-labelledby="title">
+      <p class="eyebrow">Skenirajte da podijelite fotografije</p>
+      <h1 id="title">Edis &amp; Nina</h1>
+      <img id="qr" src="/qr-code.png" alt="QR kod koji otvara stranicu za dodavanje fotografija" width="800" height="800">
+      <p class="print-hint">Otvorite kameru na telefonu i usmjerite je na ovaj kod.</p>
+      <p class="url" id="qr-url"></p>
+    </section>
+
+    <section class="panel no-print" aria-labelledby="setup-heading">
+      <h2 id="setup-heading">Postavke albuma</h2>
+      <p class="note" id="reach"></p>
+      <p class="hint">QR kod je sačuvan na ovom računaru kao <span class="path">storage/qr-code.png</span>. Fotografije su u <span class="path">storage/photos</span>.</p>
+
+      <form id="settings">
+        <label class="field" for="album-title">Naziv albuma</label>
+        <input id="album-title" name="title" maxlength="80" required>
+
+        <label class="field" for="album-subtitle">Red ispod naziva</label>
+        <input id="album-subtitle" name="subtitle" maxlength="160">
+
+        <label class="field" for="public-url">Link u QR kodu</label>
+        <input id="public-url" name="publicUrl" inputmode="url" placeholder="Ostavite prazno za javni link" autocomplete="off">
+        <p class="hint">Ostavite ovo prazno. Telefoni otvaraju javni link i mogu biti na bilo kojoj mreži. Zalijepite link samo ako već imate svoj.</p>
+
+        <div class="chips" id="addresses"></div>
+
+        <div class="button-row">
+          <button class="primary" type="submit">Sačuvajte i osvježite QR</button>
+          <button class="ghost" id="use-lan" type="button">Koristite automatski link</button>
+        </div>
+      </form>
+      <p class="status" id="status" role="status"></p>
+
+      <div class="button-row">
+        <a class="ghost" id="download-qr" href="/qr-code.png" download="wedding-qr.png">Preuzmite QR</a>
+        <button class="ghost" id="print" type="button">Odštampajte</button>
+        <a class="ghost" id="download-zip" href="/api/download">Preuzmite sve fotografije</a>
+      </div>
+    </section>
+
+    <section class="no-print" aria-labelledby="album-heading">
+      <div class="section-head">
+        <h2 id="album-heading">Fotografije do sada</h2>
+        <p id="count"></p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>Još nema ničega. Kad gosti dodaju fotografije, one se pojavljuju u ovom albumu.</p>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-btn close" id="close">Zatvori</button>
+    <button type="button" class="lightbox-btn prev" id="prev" aria-label="Prethodna fotografija">Prethodna</button>
+    <figure>
+      <img id="light-img" alt="">
+      <figcaption id="light-cap"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-btn next" id="next" aria-label="Sljedeća fotografija">Sljedeća</button>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

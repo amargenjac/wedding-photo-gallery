@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>Edis & Nina</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="guest">
+  <main class="wrap">
+    <header class="top">
+      <p class="eyebrow">Zajednički album</p>
+      <h1 id="title">Edis &amp; Nina</h1>
+      <p class="lede" id="subtitle">Dodajte svoje fotografije sa vjenčanja.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="add-heading">
+      <h2 id="add-heading">Dodajte fotografije</h2>
+      <label class="field" for="guest-name">Vaše ime</label>
+      <input id="guest-name" name="guestName" maxlength="80" autocomplete="name" placeholder="Nije obavezno" enterkeyhint="done">
+
+      <label class="drop" id="drop">
+        <input id="files" type="file" accept="image/*,.heic,.heif" multiple>
+        <span class="drop-title">Izaberite iz galerije</span>
+        <span class="drop-hint">Možete izabrati više fotografija odjednom.</span>
+      </label>
+
+      <label class="camera-btn">
+        <input id="camera" type="file" accept="image/*" capture="environment">
+        Uslikajte fotografiju
+      </label>
+
+      <ul class="picks" id="picks" hidden></ul>
+      <div class="bar" id="bar" hidden><span id="bar-fill"></span></div>
+      <button class="primary" id="upload" type="button" disabled>Dodajte u album</button>
+      <p class="status" id="status" role="status"></p>
+    </section>
+
+    <section aria-labelledby="album-heading">
+      <div class="section-head">
+        <h2 id="album-heading">Album</h2>
+        <p id="count"></p>
+      </div>
+      <p class="hint">Nove fotografije se pojavljuju same.</p>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>Još nema fotografija. Vaša može biti prva.</p>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-btn close" id="close">Zatvori</button>
+    <button type="button" class="lightbox-btn prev" id="prev" aria-label="Prethodna fotografija">Prethodna</button>
+    <figure>
+      <img id="light-img" alt="">
+      <figcaption id="light-cap"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-btn next" id="next" aria-label="Sljedeća fotografija">Sljedeća</button>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
